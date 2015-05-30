@@ -1,0 +1,27 @@
+name: odroid-c1
+vendor: Simon Eisenmann <simon@longsleep.org>
+icon: meta/odroid-c1.png
+version: 0.1
+type: oem
+
+config:
+  ubuntu-core:
+    hostname: odroid
+oem:
+  branding:
+    name: ODROID C1
+  hardware:
+    platform: meson8b_odroidc
+    architecture: armhf
+    partition-layout: system-AB
+    bootloader: u-boot
+    boot-assets:
+      files:
+        - path: boot-assets/boot.ini
+      raw-files:
+        - path: boot-assets/bl1-0.bin
+          offset: 0
+        - path: boot-assets/bl1-1.bin
+          offset: 512 # 512 * 1
+        - path: boot-assets/u-boot.bin
+          offset: 32768 # 512 * 64
