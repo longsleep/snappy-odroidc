@@ -5,7 +5,7 @@ oem/boot-assets/u-boot.bin
 *.tar.xz
 linux/
 initrd/
-initrd.img
+*.img
 device/assets/
 device/preinstalled.tar.gz
 device/preinstalled/
