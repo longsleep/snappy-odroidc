@@ -14,7 +14,7 @@ build: $(UBOOT_BIN)
 
 $(UBOOT_BIN): $(UBOOT_SRC)
 	$(MAKE) CROSS_COMPILE=${CC} -C $(UBOOT_SRC) odroidc_config
-	$(MAKE) CROSS_COMPILE=${CC} -C $(UBOOT_SRC)
+	$(MAKE) CROSS_COMPILE=${CC} -C $(UBOOT_SRC) -j$(CPUS)
 	touch $@
 
 $(UBOOT_SRC):

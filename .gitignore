@@ -2,3 +2,4 @@ u-boot/
 oem/boot-assets/bl1-*.bin
 oem/boot-assets/u-boot.bin
 *.snap
+linux/
