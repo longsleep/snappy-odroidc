@@ -1,0 +1,6 @@
+kernel: assets/uImage
+dtbs: assets/dtbs
+initrd: assets/uInitrd
+partition-layout: system-AB
+bootloader: u-boot
+
