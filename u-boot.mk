@@ -21,4 +21,3 @@ $(UBOOT_SRC):
 	git clone --depth=1 $(UBOOT_REPO) -b $(UBOOT_BRANCH)
 
 .PHONY: all clean distclean build
-

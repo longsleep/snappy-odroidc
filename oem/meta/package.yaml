@@ -1,4 +1,4 @@
-name: odroid-c1
+name: odroidc
 vendor: Simon Eisenmann <simon@longsleep.org>
 icon: meta/odroid-c1.png
 version: 0.1
@@ -9,7 +9,7 @@ config:
     hostname: odroid
 oem:
   branding:
-    name: ODROID C1
+    name: ODROIDC
   hardware:
     platform: meson8b_odroidc
     architecture: armhf

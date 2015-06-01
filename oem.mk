@@ -12,7 +12,7 @@ build: bl snappy
 bl: $(BL1_0) $(BL1_1) $(OEM_UBOOT_BIN)
 
 snappy:
-	cd oem && snappy build -o ../ .
+	cd oem && snappy build -o $(OUTPUT_DIR) .
 
 clean:
 	rm -f $(BL1_0)
