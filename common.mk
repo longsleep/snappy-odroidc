@@ -10,9 +10,9 @@ UBOOT_BIN := $(UBOOT_SRC)/sd_fuse/u-boot.bin
 LINUX_REPO := https://github.com/hardkernel/linux.git
 LINUX_BRANCH := odroidc-3.10.y
 LINUX_SRC := $(PWD)/linux
+LINUX_UIMAGE := $(LINUX_SRC)/arch/arm/boot/uImage
+LINUX_DTB := $(LINUX_SRC)/arch/arm/boot/dts/meson8b_odroidc.dtb
+LINUX_MODULES := $(LINUX_SRC)/modules
 
 DEVICE_SRC := $(PWD)/device
 DEVICE_TAR := $(PWD)/device-odroidc.tar.xz
-
-INITRD_IMG := $(PWD)/initrd.img
-INITRD_SRC := $(PWD)/initrd

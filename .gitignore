@@ -4,10 +4,10 @@ oem/boot-assets/u-boot.bin
 *.snap
 *.tar.xz
 linux/
-initrd/
 *.img
 device/assets/
 device/preinstalled.tar.gz
 device/preinstalled/
 device/ramdisk/
 device/system/
+device/initrd/
