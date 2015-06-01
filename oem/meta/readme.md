@@ -1,2 +1,2 @@
-ODROID C1 support package
-Support files for booting ODROID C1
+ODROIDC support package
+Support files for booting ODROIDC
