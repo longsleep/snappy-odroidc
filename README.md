@@ -58,3 +58,6 @@ Flash this to SD or eMMC and your ODROID will boot into Snappy. Default user
 is `ubuntu` with password `ubuntu`.
 
 Enjoy!
+
+--
+Simon Eisenmann <simon@longsleep.org>
