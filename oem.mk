@@ -16,14 +16,15 @@ $(BL1_0):
 $(BL1_1):
 	dd if=$(BL1) of=$@ bs=512 skip=1 conv=notrunc
 
-$(OEM_UBOOT_BIN):
-	cp -f $(UBOOT_BIN) $@
+u-boot:
+	@if [ ! -f $(UBOOT_BIN) ] ; then echo "Build u-boot first."; exit 1; fi
+	cp -f $(UBOOT_BIN) $(OEM_UBOOT_BIN)
 
-bl: $(BL1_0) $(BL1_1) $(OEM_UBOOT_BIN)
+bl: $(BL1_0) $(BL1_1) u-boot
 
 snappy:
 	cd oem && snappy build -o $(OUTPUT_DIR) .
 
 oem: bl snappy
 
-.PHONY: bl snappy oem
+.PHONY: u-boot bl snappy oem
