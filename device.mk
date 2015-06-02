@@ -25,6 +25,7 @@ $(DEVICE_SRC):
 	mkdir -p $(DEVICE_SRC)
 
 $(DEVICE_UIMAGE):
+	@if [ ! -f $(LINUX_UIMAGE) ] ; then echo "Build linux first."; exit 1; fi
 	@mkdir -p $(DEVICE_SRC)/assets
 	cp -f $(LINUX_UIMAGE) $@
 
@@ -50,10 +51,12 @@ $(DEVICE_SRC)/preinstalled/initrd.img: $(DEVICE_SRC)/preinstalled.tar.gz
 	cp $(DEVICE_SRC)/preinstalled/system/boot/initrd.img-* $@
 
 dtbs:
+	@if [ ! -f $(LINUX_DTB) ] ; then echo "Build linux first."; exit 1; fi
 	@mkdir -p $(DEVICE_DTBS)
 	cp $(LINUX_DTB) $(DEVICE_DTBS)
 
 modules:
+	@if [ ! -e $(LINUX_MODULES) ] ; then echo "Build linux first."; exit 1; fi
 	@mkdir -p $(DEVICE_MODULES)
 	cp -a $(LINUX_MODULES)/* $(DEVICE_MODULES)
 
