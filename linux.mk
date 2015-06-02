@@ -2,7 +2,7 @@ include common.mk
 
 CC := /usr/bin/arm-linux-gnueabihf-
 
-all: linux
+all: build
 
 clean:
 	if test -d "$(LINUX_SRC)" ; then $(MAKE) -C $(LINUX_SRC) mrproper ; fi
@@ -35,4 +35,6 @@ modules: $(LINUX_SRC)/.config
 linux: kernel dtb modules
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CC) -C $(LINUX_SRC) -j$(CPUS) INSTALL_MOD_PATH=$(LINUX_MODULES) INSTALL_MOD_STRIP=1 modules_install
 
-.PHONY: kernel dtb modules linux
+build: linux
+
+.PHONY: kernel dtb modules linux build

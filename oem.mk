@@ -5,7 +5,7 @@ BL1_0 := oem/boot-assets/bl1-0.bin
 BL1_1 := oem/boot-assets/bl1-1.bin
 OEM_UBOOT_BIN := oem/boot-assets/u-boot.bin
 
-all: oem
+all: build
 
 clean:
 	rm -f $(BL1_0) $(BL1_1) $(OEM_UBOOT_BIN)
@@ -27,4 +27,6 @@ snappy:
 
 oem: bl snappy
 
-.PHONY: u-boot bl snappy oem
+build: oem
+
+.PHONY: u-boot bl snappy oem build

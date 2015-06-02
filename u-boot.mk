@@ -2,7 +2,7 @@ include common.mk
 
 CC := /usr/bin/arm-linux-gnueabihf-
 
-all: u-boot
+all: build
 
 clean:
 	if test -d "$(UBOOT_SRC)" ; then $(MAKE) ARCH=arm CROSS_COMPILE=${CC} -C $(UBOOT_SRC) clean ; fi
@@ -20,4 +20,6 @@ $(UBOOT_SRC):
 
 u-boot: $(UBOOT_BIN)
 
-.PHONY: u-boot
+build: u-boot
+
+.PHONY: u-boot build

@@ -9,7 +9,7 @@ DEVICE_INITRD_IMG := $(DEVICE_SRC)/initrd.img
 DEVICE_UINITRD := $(DEVICE_SRC)/assets/uInitrd
 DEVICE_MODULES := $(DEVICE_SRC)/system
 
-all: device
+all: build
 
 clean:
 	rm -f $(DEVICE_UIMAGE) $(DEVICE_UINITRD) $(DEVICE_INITRD_IMG)
@@ -64,4 +64,6 @@ device: $(DEVICE_UIMAGE) $(DEVICE_UINITRD) dtbs modules
 	@rm -f $(DEVICE_TAR)
 	tar -C $(DEVICE_SRC) -cavf $(DEVICE_TAR) --exclude preinstalled --exclude preinstalled.tar.gz --exclude initrd --exclude initrd.img --xform s:'./':: .
 
-.PHONY: dtbs modules device
+build: device
+
+.PHONY: dtbs modules device build
