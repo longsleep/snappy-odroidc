@@ -26,4 +26,12 @@ clean: $(addprefix clean-,$(BUILD_STEPS))
 
 distclean: $(addprefix distclean-,$(BUILD_STEPS))
 
-.PHONY: all build clean distclean
+u-boot: build-u-boot
+
+linux: build-linux
+
+oem: build-oem
+
+device: build-device
+
+.PHONY: all build clean distclean u-boot linux oem device
