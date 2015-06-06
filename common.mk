@@ -2,8 +2,8 @@ CPUS := $(shell getconf _NPROCESSORS_ONLN)
 
 OUTPUT_DIR := $(PWD)
 
-UBOOT_REPO := https://github.com/hardkernel/u-boot.git
-UBOOT_BRANCH := odroidc-v2011.03
+UBOOT_REPO := https://github.com/longsleep/u-boot-odroidc.git
+UBOOT_BRANCH := master
 UBOOT_SRC := $(PWD)/u-boot
 UBOOT_BIN := $(UBOOT_SRC)/sd_fuse/u-boot.bin
 
