@@ -14,8 +14,10 @@ sudo apt-get install build-essential u-boot-tools lzop debootstrap debootstrap g
 ## Building
 
 A `Makefile` is provided to build U-Boot, Kernel and Initrd from source. The
-sources will be cloned into local folders if not there already. We currently
-clone from Hardkernel official U-Boot and Linux ODROID C1 branches.
+sources will be cloned into local folders if not there already. The U-Boot
+provided by Hardkernel is lacking features to support Ubuntu Snappy and is
+based on a very old U-Boot version. For now, i have backported the missing
+required features in [my own U-Boot tree](https://github.com/longsleep/u-boot-odroidc).
 
 To build it all, just run `make`. This will produce a oem snap `odroidc_x.y_all.snap`
 and a `device-odroidc.tar.gz` device part, which can be used to build your own
@@ -30,6 +32,12 @@ so make sure you have build the U-Boot first with `make u-boot`.
 make oem
 ```
 
+The OEM snap, contains also a boot.ini which overwrites certain variables to
+make Snappy work with the U-Boot v2011.03. This is quite hacky but for now
+seems to be the only possible option. In addition, the OEM snap contains the
+binary proprietary boot loader code which bootstraps the SOC. On build, this
+boot code is split up as required by the hardware platform.
+
 ### Build device part
 
 Of course the device part can be built seperately as well. The device part
@@ -39,6 +47,12 @@ Kernel first with `make linux`.
 ```bash
 make device
 ```
+The device part is quite straigt forward. It contains the linux Kernel in the
+U-Boot compatible format, the compiled device tree, the Kernel modules and the
+initial ram disk. As there does not seem to be any reasonable way to build the
+initrd, it is extracted from the preinstalled Ubuntu Snappy Core tar and
+repacked without Kernel and  modules. We do not add any Kernel modules to the
+ram disk.
 
 ## Build Snappy image for ODROID C1
 
