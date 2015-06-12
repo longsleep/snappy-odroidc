@@ -6,7 +6,8 @@ all: build
 
 clean:
 	if test -d "$(LINUX_SRC)" ; then $(MAKE) -C $(LINUX_SRC) mrproper ; fi
-	rm -f $(INITRD_IMG) $(LINUX_UIMAGE) $(LINUX_MODULES) $(LINUX_DTB)
+	rm -f $(INITRD_IMG) $(LINUX_UIMAGE) $(LINUX_DTB)
+	rn -rf $(LINUX_MODULES)
 
 distclean:
 	rm -rf $(wildcard $(LINUX_SRC) $(INITRD_SRC))
