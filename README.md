@@ -47,6 +47,7 @@ Kernel first with `make linux`.
 ```bash
 make device
 ```
+
 The device part is quite straigt forward. It contains the linux Kernel in the
 U-Boot compatible format, the compiled device tree, the Kernel modules and the
 initial ram disk. As there does not seem to be any reasonable way to build the
