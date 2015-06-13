@@ -10,6 +10,7 @@ DEVICE_INITRD := $(DEVICE_SRC)/initrd
 DEVICE_INITRD_IMG := $(DEVICE_SRC)/initrd.img
 DEVICE_UINITRD := $(DEVICE_SRC)/assets/uInitrd
 DEVICE_MODULES := $(DEVICE_SRC)/system
+DEVICE_MODPROBE_D := $(DEVICE_SRC)/system/lib/modprobe.d
 DEVICE_TAR := $(PWD)/device-odroidc_$(DEVICE_VERSION).tar.xz
 
 all: build
@@ -20,6 +21,7 @@ clean:
 	rm -rf $(DEVICE_MODULES)
 	rm -rf $(DEVICE_INITRD)
 	rm -rf $(DEVICE_SRC)/preinstalled
+	rm -rf $(DEVICE_MODPROBE_D)
 
 distclean:
 	rm -rf $(DEVICE_SRC)
@@ -63,9 +65,13 @@ modules:
 	@mkdir -p $(DEVICE_MODULES)
 	cp -a $(LINUX_MODULES)/* $(DEVICE_MODULES)
 
-device: $(DEVICE_UIMAGE) $(DEVICE_UINITRD) dtbs modules
+modprobe.d:
+	@mkdir -p $(DEVICE_MODPROBE_D)
+	cp -a $(DEVICE_SRC)/modprobe.d/* $(DEVICE_MODPROBE_D)
+
+device: $(DEVICE_UIMAGE) $(DEVICE_UINITRD) dtbs modules modprobe.d
 	@rm -f $(DEVICE_TAR)
-	tar -C $(DEVICE_SRC) -cavf $(DEVICE_TAR) --exclude preinstalled --exclude preinstalled.tar.gz --exclude initrd --exclude initrd.img --xform s:'./':: .
+	tar -C $(DEVICE_SRC) -cavf $(DEVICE_TAR) --exclude ./preinstalled --exclude ./preinstalled.tar.gz --exclude ./initrd --exclude ./initrd.img --exclude ./modprobe.d --xform s:'./':: .
 
 build: device
 
