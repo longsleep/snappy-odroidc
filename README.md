@@ -61,6 +61,7 @@ simply create the image like this.
 
 ```bash
 sudo ubuntu-device-flash core 15.04 \
+	--channel edge \
 	--oem odroidc_x.y_all.snap \
 	--device-part device-odroidc.tar.xz \
 	--developer-mode \
