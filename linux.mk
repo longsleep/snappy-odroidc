@@ -13,10 +13,10 @@ distclean:
 	rm -rf $(wildcard $(LINUX_SRC) $(INITRD_SRC))
 
 $(LINUX_SRC):
-	@git clone --depth=1 $(LINUX_REPO) -b $(LINUX_BRANCH)
+	@git clone --depth=1 $(LINUX_REPO) -b $(LINUX_BRANCH) linux
 
 $(LINUX_SRC)/.config: $(LINUX_SRC)
-	$(MAKE) ARCH=arm CROSS_COMPILE=$(CC) -C $(LINUX_SRC) odroidc_defconfig
+	$(MAKE) ARCH=arm CROSS_COMPILE=$(CC) -C $(LINUX_SRC) snappy_odroidc_defconfig
 
 $(LINUX_UIMAGE): $(LINUX_SRC)/.config
 	@rm -f $(LINUX_SRC)/arch/arm/boot/zImage
@@ -25,6 +25,8 @@ $(LINUX_UIMAGE): $(LINUX_SRC)/.config
 
 $(LINUX_DTB): $(LINUX_SRC)/.config
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CC) -C $(LINUX_SRC) -j$(CPUS) dtbs
+
+config: $(LINUX_SRC)/.config
 
 kernel: $(LINUX_UIMAGE)
 
