@@ -60,13 +60,13 @@ Make sure you have build the OEM snap and the device part first. Then you can
 simply create the image like this.
 
 ```bash
-sudo ubuntu-device-flash core 15.04 \
+sudo ubuntu-device-flash core \
 	--channel edge \
-	--oem odroidc_x.y_all.snap \
+	--oem odroidc_0.2_all.snap \
 	--device-part device-odroidc.tar.xz \
 	--developer-mode \
-	-s 3 \
-	-o odroidc.img
+	-o odroidc-15.04-edge.img \
+	15.04
 ```
 
 Flash this to SD or eMMC and your ODROID will boot into Snappy. Default user
