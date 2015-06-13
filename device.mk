@@ -27,7 +27,7 @@ $(DEVICE_SRC):
 $(DEVICE_UIMAGE):
 	@if [ ! -f $(LINUX_UIMAGE) ] ; then echo "Build linux first."; exit 1; fi
 	@mkdir -p $(DEVICE_SRC)/assets
-	cp -f $(LINUX_UIMAGE) $@
+	cp -f $(LINUX_UIMAGE) $(DEVICE_UIMAGE)
 
 $(DEVICE_UINITRD): $(DEVICE_INITRD_IMG)
 	@mkdir -p $(DEVICE_SRC)/assets
