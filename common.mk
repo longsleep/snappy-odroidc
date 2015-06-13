@@ -14,5 +14,3 @@ LINUX_UIMAGE := $(LINUX_SRC)/arch/arm/boot/uImage
 LINUX_DTB := $(LINUX_SRC)/arch/arm/boot/dts/meson8b_odroidc.dtb
 LINUX_MODULES := $(LINUX_SRC)/modules
 
-DEVICE_SRC := $(PWD)/device
-DEVICE_TAR := $(PWD)/device-odroidc.tar.xz

@@ -64,7 +64,7 @@ simply create the image like this.
 sudo ubuntu-device-flash core \
 	--channel edge \
 	--oem odroidc_0.2_all.snap \
-	--device-part device-odroidc.tar.xz \
+	--device-part device-odroidc_0.2.tar.xz \
 	--developer-mode \
 	-o odroidc-15.04-edge.img \
 	15.04

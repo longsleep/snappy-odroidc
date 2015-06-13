@@ -1,13 +1,16 @@
 include common.mk
 
+DEVICE_VERSION := "0.2"
 DEVICE_PREINSTALLED := http://cdimage.ubuntu.com/ubuntu-core/daily-preinstalled/current/wily-preinstalled-core-armhf.device.tar.gz
 
+DEVICE_SRC := $(PWD)/device
 DEVICE_UIMAGE := $(DEVICE_SRC)/assets/uImage
 DEVICE_DTBS := $(DEVICE_SRC)/assets/dtbs
 DEVICE_INITRD := $(DEVICE_SRC)/initrd
 DEVICE_INITRD_IMG := $(DEVICE_SRC)/initrd.img
 DEVICE_UINITRD := $(DEVICE_SRC)/assets/uInitrd
 DEVICE_MODULES := $(DEVICE_SRC)/system
+DEVICE_TAR := $(PWD)/device-odroidc_$(DEVICE_VERSION).tar.xz
 
 all: build
 
