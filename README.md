@@ -62,8 +62,9 @@ modules.
 
 ## Build Snappy image for ODROID C1
 
-Make sure you have build the OEM snap and the device part first. Then you can
-simply create the image like this.
+Make sure you have build the OEM snap and the device part first. You will also
+need to have the [snappy-tools](https://developer.ubuntu.com/en/snappy/start/)
+installed. Then you can simply create the image with `ubuntu-device-flash`.
 
 ```bash
 sudo ubuntu-device-flash core \
@@ -75,8 +76,8 @@ sudo ubuntu-device-flash core \
 	15.04
 ```
 
-Flash this to SD or eMMC and your ODROID will boot into Snappy. Default user
-is `ubuntu` with password `ubuntu`.
+Flash this to SD or eMMC and your ODROID will boot into Snappy. DHCP will be
+used for ethernet networking. Default user is `ubuntu` with password `ubuntu`.
 
 Enjoy!
 
