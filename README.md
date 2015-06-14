@@ -14,10 +14,16 @@ sudo apt-get install build-essential u-boot-tools lzop debootstrap debootstrap g
 ## Building
 
 A `Makefile` is provided to build U-Boot, Kernel and Initrd from source. The
-sources will be cloned into local folders if not there already. The U-Boot
-provided by Hardkernel is lacking features to support Ubuntu Snappy and is
-based on a very old U-Boot version. For now, i have backported the missing
-required features in [my own U-Boot tree](https://github.com/longsleep/u-boot-odroidc).
+sources will be cloned into local folders if not there already.
+
+The U-Boot provided by Hardkernel is lacking features to support Ubuntu Snappy
+and is based on a very old U-Boot version. For now, i have backported the
+missing required features in [my own U-Boot tree](https://github.com/longsleep/u-boot-odroidc).
+
+Similar to U-Boot, the Kernel provided by Hardkernel is lacking latest
+AppArmor support. I have a [ODROIDC Kernel tree](https://github.com/longsleep/ubuntu-odroidc,
+which has the changes for ODROIDC from Hardkernel merged together with
+AppArmor upstream changes.
 
 To build it all, just run `make`. This will produce a oem snap `odroidc_x.y_all.snap`
 and a `device-odroidc.tar.gz` device part, which can be used to build your own
@@ -48,12 +54,11 @@ Kernel first with `make linux`.
 make device
 ```
 
-The device part is quite straigt forward. It contains the linux Kernel in the
-U-Boot compatible format, the compiled device tree, the Kernel modules and the
-initial ram disk. As there does not seem to be any reasonable way to build the
-initrd, it is extracted from the preinstalled Ubuntu Snappy Core tar and
-repacked without Kernel and  modules. We do not add any Kernel modules to the
-ram disk.
+The device part contains the Linux Kernel in the U-Boot compatible format, the
+compiled device tree, the Kernel modules and the initial ram disk. As there
+does not seem to be any reasonable way to build the initrd, it is extracted
+from the preinstalled Ubuntu Snappy Core tar and repacked without Kernel and
+modules.
 
 ## Build Snappy image for ODROID C1
 
