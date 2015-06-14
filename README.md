@@ -21,9 +21,9 @@ and is based on a very old U-Boot version. For now, i have backported the
 missing required features in [my own U-Boot tree](https://github.com/longsleep/u-boot-odroidc).
 
 Similar to U-Boot, the Kernel provided by Hardkernel is lacking latest
-AppArmor support. I have a [ODROIDC Kernel tree](https://github.com/longsleep/ubuntu-odroidc,
-which has the changes for ODROIDC from Hardkernel merged together with
-AppArmor upstream changes.
+AppArmor support. I have a [ODROIDC Kernel tree](https://github.com/longsleep/ubuntu-odroidc)
+with the changes for ODROIDC from Hardkernel merged together with AppArmor
+upstream.
 
 To build it all, just run `make`. This will produce a oem snap `odroidc_x.y_all.snap`
 and a `device-odroidc.tar.gz` device part, which can be used to build your own
