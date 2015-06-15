@@ -1,6 +1,6 @@
 include common.mk
 
-DEVICE_VERSION := "0.2"
+DEVICE_VERSION := "0.3"
 DEVICE_PREINSTALLED := http://cdimage.ubuntu.com/ubuntu-core/daily-preinstalled/current/wily-preinstalled-core-armhf.device.tar.gz
 
 DEVICE_SRC := $(PWD)/device
