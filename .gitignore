@@ -1,6 +1,7 @@
 u-boot/
 oem/boot-assets/bl1-*.bin
 oem/boot-assets/u-boot.bin
+oem/boot-assets/uboot.env
 *.snap
 *.tar.xz
 linux/
