@@ -28,7 +28,7 @@ env:
 	@if [ ! -f $(UBOOT_MKENVIMAGE) ] ; then echo "Build u-boot first."; exit 1; fi
 	$(UBOOT_MKENVIMAGE) -r -s 32768 -o $(OEM_UBOOT_ENV) $(OEM_UBOOT_ENV).in
 
-snappy:
+snappy: env
 	cd oem && snappy build -o $(OUTPUT_DIR) .
 
 oem: bl snappy

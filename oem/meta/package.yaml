@@ -1,7 +1,7 @@
 name: odroidc
 vendor: Simon Eisenmann <simon@longsleep.org>
 icon: meta/odroid-c1.png
-version: 0.2
+version: 0.3
 type: oem
 
 config:
@@ -17,8 +17,8 @@ oem:
     bootloader: u-boot
     boot-assets:
       files:
-        - path: boot-assets/boot.ini
         - path: boot-assets/uEnv.txt
+        - path: boot-assets/uboot.env
       raw-files:
         - path: boot-assets/bl1-0.bin
           offset: 0
