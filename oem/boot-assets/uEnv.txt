@@ -1,1 +1,51 @@
-# We need a uEnv.txt file, to make the snappy tool happy.
+
+# Screen resolution (default=1080p)
+#m=vga
+#m=480p
+#m=576p
+#m=800x480p60hz
+#m=800x600p60hz
+#m=1024x600p60hz
+#m=1024x768p60hz
+#m=1360x768p60hz
+#m=1366x768p60hz
+#m=1440x900p60hz
+#m=1600x900p60hz
+#m=1680x1050p60hz
+#m=720p
+#m=800p
+#m=sxga
+m=1080p
+#m=1920x1200
+
+# Video mode (default=hdmi)
+vout_mode=hdmi
+#vout_mode=dvi
+
+# Video bpp (default=32)
+m_bpp=32
+#m_bpp=24
+#m_bpp=16
+
+# Enable HDMI hot plug (HPD, default=1)
+# 1 = enabled
+# 0 = disabled (forces connected status)
+hdp=1
+
+# Enable HDMI CEC support (default=0)
+# 1 = enabled
+# 0 = disabled
+cec=0
+
+# Uncomment the line below to disable UHS-1 MicroSD support
+# disableuhs=disableuhs
+
+# Enable video decoding engine (default=1)
+# 1 = enabled
+# 0 = disabled
+vpu=1
+
+# Enable HDMI output (default=1)
+# 1 = enabled
+# 0 = disabled
+hdmioutput=1
