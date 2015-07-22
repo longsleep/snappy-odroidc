@@ -1,5 +1,5 @@
 
-# Screen resolution (default=1080p)
+# Screen resolution (default=720p)
 #m=vga
 #m=480p
 #m=576p
@@ -30,7 +30,7 @@ m_bpp=32
 # Enable HDMI hot plug (HPD, default=1)
 # 1 = enabled
 # 0 = disabled (forces connected status)
-hdp=1
+hpd=1
 
 # Enable HDMI CEC support (default=0)
 # 1 = enabled
