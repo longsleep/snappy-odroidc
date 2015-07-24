@@ -6,6 +6,7 @@ UBOOT_REPO := https://github.com/longsleep/u-boot-odroidc.git
 UBOOT_BRANCH := master
 UBOOT_SRC := $(PWD)/u-boot
 UBOOT_BIN := $(UBOOT_SRC)/sd_fuse/u-boot.bin
+UBOOT_MKENVIMAGE := $(UBOOT_SRC)/build/tools/mkenvimage
 
 LINUX_REPO := https://github.com/longsleep/ubuntu-odroidc.git
 LINUX_BRANCH := master

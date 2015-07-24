@@ -7,7 +7,7 @@ all: build
 clean:
 	if test -d "$(LINUX_SRC)" ; then $(MAKE) -C $(LINUX_SRC) mrproper ; fi
 	rm -f $(INITRD_IMG) $(LINUX_UIMAGE) $(LINUX_DTB)
-	rn -rf $(LINUX_MODULES)
+	rm -rf $(LINUX_MODULES)
 
 distclean:
 	rm -rf $(wildcard $(LINUX_SRC) $(INITRD_SRC))
@@ -36,6 +36,7 @@ modules: $(LINUX_SRC)/.config
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CC) -C $(LINUX_SRC) -j$(CPUS) modules
 
 linux: kernel dtb modules
+	@rm -rf $(LINUX_MODULES)
 	$(MAKE) ARCH=arm CROSS_COMPILE=$(CC) -C $(LINUX_SRC) -j$(CPUS) INSTALL_MOD_PATH=$(LINUX_MODULES) INSTALL_MOD_STRIP=1 modules_install
 
 build: linux
