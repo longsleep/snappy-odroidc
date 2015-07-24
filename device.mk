@@ -1,6 +1,6 @@
 include common.mk
 
-DEVICE_VERSION := "0.3"
+DEVICE_VERSION := "0.4"
 DEVICE_PREINSTALLED := http://cdimage.ubuntu.com/ubuntu-core/daily-preinstalled/current/wily-preinstalled-core-armhf.device.tar.gz
 
 DEVICE_SRC := $(PWD)/device
@@ -41,6 +41,7 @@ $(DEVICE_UINITRD): $(DEVICE_INITRD_IMG)
 
 $(DEVICE_INITRD_IMG): $(DEVICE_SRC)/preinstalled/initrd.img
 	@rm -f $(DEVICE_INITRD_IMG)
+	@rm -rf $(DEVICE_INITRD)
 	@mkdir -p $(DEVICE_INITRD)
 	lzcat $(DEVICE_SRC)/preinstalled/initrd.img | ( cd $(DEVICE_INITRD); cpio -i )
 	@rm -rf $(DEVICE_INITRD)/lib/modules
@@ -62,10 +63,12 @@ dtbs:
 
 modules:
 	@if [ ! -e $(LINUX_MODULES) ] ; then echo "Build linux first."; exit 1; fi
+	@rm -rf $(DEVICE_MODULES)
 	@mkdir -p $(DEVICE_MODULES)
 	cp -a $(LINUX_MODULES)/* $(DEVICE_MODULES)
 
 modprobe.d:
+	@rm -rf $(DEVICE_MODPROBE_D)
 	@mkdir -p $(DEVICE_MODPROBE_D)
 	cp -a $(DEVICE_SRC)/modprobe.d/* $(DEVICE_MODPROBE_D)
 
@@ -75,4 +78,4 @@ device: $(DEVICE_UIMAGE) $(DEVICE_UINITRD) dtbs modules modprobe.d
 
 build: device
 
-.PHONY: dtbs modules device build
+.PHONY: dtbs modules device build $(DEVICE_INITRD_IMG) $(DEVICE_UIMAGE)
