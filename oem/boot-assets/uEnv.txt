@@ -43,9 +43,9 @@ cec=0
 # Enable video decoding engine (default=1)
 # 1 = enabled
 # 0 = disabled
-vpu=1
+vpu=0
 
 # Enable HDMI output (default=1)
 # 1 = enabled
 # 0 = disabled
-hdmioutput=1
+hdmioutput=0
