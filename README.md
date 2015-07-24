@@ -69,8 +69,8 @@ installed. Then you can simply create the image with `ubuntu-device-flash`.
 ```bash
 sudo ubuntu-device-flash core \
 	--channel edge \
-	--oem odroidc_0.2_all.snap \
-	--device-part device-odroidc_0.2.tar.xz \
+	--oem odroidc_0.3_all.snap \
+	--device-part device-odroidc_0.4.tar.xz \
 	--developer-mode \
 	-o odroidc-15.04-edge.img \
 	15.04
