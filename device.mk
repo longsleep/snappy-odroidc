@@ -1,6 +1,6 @@
 include common.mk
 
-DEVICE_VERSION := "0.4"
+DEVICE_VERSION := "0.5"
 DEVICE_PREINSTALLED := http://cdimage.ubuntu.com/ubuntu-core/daily-preinstalled/current/wily-preinstalled-core-armhf.device.tar.gz
 
 DEVICE_SRC := $(PWD)/device
@@ -24,7 +24,7 @@ clean:
 	rm -rf $(DEVICE_MODPROBE_D)
 
 distclean:
-	rm -rf $(DEVICE_SRC)
+	rm -rf $(DEVICE_SRC)/preinstalled.tar.gz
 
 $(DEVICE_SRC):
 	mkdir -p $(DEVICE_SRC)
