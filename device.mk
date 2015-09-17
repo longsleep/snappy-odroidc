@@ -1,7 +1,7 @@
 include common.mk
 
 DEVICE_VERSION := "0.5"
-DEVICE_PREINSTALLED := http://cdimage.ubuntu.com/ubuntu-core/daily-preinstalled/current/wily-preinstalled-core-armhf.device.tar.gz
+DEVICE_PREINSTALLED := http://cdimage.ubuntu.com/ubuntu-core/vivid/daily-preinstalled/current/vivid-preinstalled-core-armhf.device.tar.gz
 
 DEVICE_SRC := $(PWD)/device
 DEVICE_UIMAGE := $(DEVICE_SRC)/assets/uImage
