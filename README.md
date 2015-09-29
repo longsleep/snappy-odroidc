@@ -69,7 +69,7 @@ installed. Then you can simply create the image with `ubuntu-device-flash`.
 ```bash
 sudo ubuntu-device-flash core \
 	--channel stable \
-	--oem odroidc_0.3_all.snap \
+	--oem odroidc_0.4_all.snap \
 	--device-part device-odroidc_0.5.tar.xz \
 	--developer-mode \
 	-o odroidc-15.04-stable.img \

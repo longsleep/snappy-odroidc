@@ -1,7 +1,7 @@
 name: odroidc
 vendor: Simon Eisenmann <simon@longsleep.org>
 icon: meta/odroid-c1.png
-version: 0.3
+version: 0.4
 type: oem
 
 config:
