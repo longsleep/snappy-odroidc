@@ -60,7 +60,7 @@ does not seem to be any reasonable way to build the initrd, it is extracted
 from the preinstalled Ubuntu Snappy Core tar and repacked without Kernel and
 modules.
 
-## Build Snappy image for ODROID C1
+## Build ODROID-C development image
 
 Make sure you have build the OEM snap and the device part first. You will also
 need to have the [snappy-tools](https://developer.ubuntu.com/en/snappy/start/)
@@ -69,12 +69,29 @@ installed. Then you can simply create the image with `ubuntu-device-flash`.
 ```bash
 sudo ubuntu-device-flash core \
 	--channel stable \
-	--oem odroidc_0.4_all.snap \
+	--oem odroidc_0.5_all.snap \
 	--device-part device-odroidc_0.5.tar.xz \
 	--developer-mode \
+	-o odroidc-15.04-stable-dev.img \
+	15.04
+```
+
+## Build ODROID-C image for production
+
+To build an Ubuntu Snappy image without developer mode, the OEM snap needs to
+come from the store. The ODROID-C oem snap is available in the store as
+`odroidc.longsleep`. You still need to build a device tarball.
+
+```bash
+sudo ubuntu-device-flash core \
+	--channel stable \
+	--oem odroidc.longsleep \
+	--device-part device-odroidc_0.5.tar.xz \
 	-o odroidc-15.04-stable.img \
 	15.04
 ```
+
+## Flash to SD card
 
 Flash this to SD or eMMC and your ODROID will boot into Snappy. DHCP will be
 used for ethernet networking. Default user is `ubuntu` with password `ubuntu`.
